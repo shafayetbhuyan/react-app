@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import List from "../../../list/List";
 import PageHeader from "../../../page-header/PageHeader";
 import style from './PsuList.module.css'
+import { ResetButton, SearchButton } from '../../../button/Button';
 
 const columns = [
     {
@@ -71,13 +72,15 @@ export default function PsuList() {
 
             <form className={style.searchForm}>
                 <div className={style.input} >
-                    <label className={style.inputLabel} >Name</label>
-                    <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
+                    <label className={`${style.inputLabel} `} >Name</label>
+                    <input type="text" className={style.inputField} value={name} onChange={(e) => setName(e.target.value)} />
                 </div>
                 <div className={style.input} >
                     <label className={style.inputLabel} >Name</label>
-                    <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
+                    <input type="text" className={style.inputField} value={name} onChange={(e) => setName(e.target.value)} />
                 </div>
+                <SearchButton/>
+                <ResetButton />
             </form>
 
             <List data={data} />

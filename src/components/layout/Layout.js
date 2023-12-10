@@ -20,8 +20,8 @@ function Layout(props) {
 
           <div className={style.topButton}>
             <button className={` ${style.userSwitch} ${style.cp} `} >
-              <div className={ `${style.displayFlex} ${style.alignItemsCenter} ${style.h100}` }>
-                <div className={ `${style.companyLogoSec} ${style.px1} ${style.displayFlex}  ${style.alignItemsCenter}`} >
+              <div className={`${style.displayFlex} ${style.alignItemsCenter} ${style.h100}`}>
+                <div className={`${style.companyLogoSec} ${style.px1} ${style.displayFlex}  ${style.alignItemsCenter}`} >
                   <img src={companyLogo} alt="SVRS logo" className={style.compamyImage} />
                 </div>
                 <div className={`${style.px4} ${style.textLeft} `}>
@@ -44,10 +44,12 @@ function Layout(props) {
         </div>
 
       </header>
-      <aside className={style.aside}>
-        <Menu/>
-      </aside>
-      <main className={style.main}>{children}</main>
+      <div className={style.mainContainer}>
+        <aside className={style.aside}>
+          <Menu />
+        </aside>
+        <main className={style.main}>{children}</main>
+      </div>
       <footer className={style.footer}></footer>
     </div>
   );
