@@ -1,0 +1,9 @@
+.searchForm{
+    padding: 5px;
+}
+.input{
+    display: inline-block;
+}
+.inputLabel{
+    display: block;
+}

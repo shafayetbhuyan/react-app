@@ -1,0 +1,9 @@
+.headerDiv{
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    background-color: #F0F0F0;
+    padding: 2px 5px;
+}
