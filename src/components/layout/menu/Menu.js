@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
-import { sideMenu } from '../../config/menu/MenuConfig';
+import { sideMenu } from '../../../config/menu/MenuConfig';
 import style from './Menu.module.css';
 
 function Menu() {

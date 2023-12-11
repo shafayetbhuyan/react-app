@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import List from "../../../list/List";
-import PageHeader from "../../../page-header/PageHeader";
+import List from "../../../ui/core/list/List";
+import PageHeader from "../../../layout/page-header/PageHeader";
 import style from './PsuList.module.css'
-import { SearchFormButtons } from '../../../button/Button';
+import { SearchFormButtons } from '../../../ui/core/button/Button';
+import  { SearchInput, SearchInputSelect } from '../../../ui/core/input/SearchInput';
 
-import Select from 'react-select';
 const aquaticCreatures = [
     { label: 'Shark', value: 'Shark' },
     { label: 'Dolphin', value: 'Dolphin' },
@@ -12,7 +12,7 @@ const aquaticCreatures = [
     { label: 'Octopus', value: 'Octopus' },
     { label: 'Crab', value: 'Crab' },
     { label: 'Lobster', value: 'Lobster' },
-  ];
+];
 
 const columns = [
     {
@@ -69,9 +69,58 @@ const rows = [
 
 export default function PsuList() {
 
-    const submitForm = (e) =>{
+/*
+
+    const colorStyles = {
+        control: (provided, state) => ({
+          ...provided,
+          background: '#fff',
+          borderColor: '#caced2',
+          minHeight: '26px',
+          height: '25px',
+          fontSize: 13,
+          boxSizing: 'border-box',
+          borderRadius: '2px',
+          boxShadow: state.isFocused ? null : null,
+        }),
+        option: (provided, { data, isDisabled, isFocused, isSelected }) => {
+            return {
+              ...provided,
+              padding: '4px 6px',
+              fontSize: 13,
+            }
+        },
+        valueContainer: (provided, state) => ({
+          ...provided,
+          height: '24px',
+          padding: '0 6px'
+        }),
+        input: (provided, state) => ({
+          ...provided,
+          margin: '0px',
+        }),
+        indicatorSeparator: state => ({
+          display: 'none',
+        }),
+        indicatorsContainer: (provided, state) => ({
+          ...provided,
+          height: '21px',
+        }),
+      };
+    
+    const handleChange = (selectedOption, actionMeta) => {
+        console.log("handleChange", selectedOption, actionMeta);
+    };
+    const handleInputChange = (inputValue, actionMeta) => {
+        console.log("handleInputChange", inputValue, actionMeta);
+    };
+    
+*/
+
+
+    const submitForm = (e) => {
         e.preventDefault();
-        
+
         const formData = new FormData(e.target);
         const payload = Object.fromEntries(formData);
 
@@ -88,18 +137,30 @@ export default function PsuList() {
             <PageHeader value='PSU List' />
 
             <form className={style.searchForm} onSubmit={submitForm}>
+                {/* 
+
                 <div className={style.input} >
                     <label className={`${style.inputLabel} `} >First Name</label>
                     <input type="text" name='firstName' className={style.inputField} />
-                </div>
+                </div> 
                 <div className={style.input} >
                     <label className={style.inputLabel} >Last Name</label>
                     <input type="text" name='lastName' className={style.inputField} />
                 </div>
+
                 <div className={style.input} >
                     <label className={style.inputLabel} >Select</label>
-                    <Select options={aquaticCreatures} className={style.inputSelect} name='select' />
+                    <Select options={aquaticCreatures} name='select'
+                        onChange={handleChange}
+                        onInputChange={handleInputChange}
+                        styles={colorStyles} />
                 </div>
+
+                */}
+
+                <SearchInput name='firstName' label='First Name'/>
+                <SearchInput name='lastName' label='Last Name'/>
+                <SearchInputSelect name='select2' label='Last Name' />
 
                 <SearchFormButtons />
 

@@ -1,22 +1,17 @@
-.searchForm{
-    padding: 5px 5px 10px 5px;
-}
+
 .input{
     display: inline-block;
     margin-left: 5px;
     color: #555555;
     width: 215px;
 }
+
 .inputLabel{
     display: block;
     margin: 1px 2px 0px 2px;
     font-size: 12px;
     font-weight: 600;
     color: #152434;
-}
-
-.margin5{
-    /* margin: 2px; */
 }
 
 .inputField{

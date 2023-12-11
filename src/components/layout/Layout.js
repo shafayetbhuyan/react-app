@@ -2,7 +2,7 @@ import React from 'react';
 import style from './Layout.module.css';
 import companyLogo from '../../images/logo_svrs.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Menu from '../menu/Menu';
+import Menu from './menu/Menu';
 
 function Layout(props) {
   // console.log("in layout", props)
