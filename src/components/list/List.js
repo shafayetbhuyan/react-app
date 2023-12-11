@@ -60,7 +60,6 @@ const rows = [
 */
 
 export default function List(props) {
-    console.log(props);
     const { rows, columns } = props.data;
 
     return (

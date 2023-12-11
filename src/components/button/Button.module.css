@@ -1,0 +1,28 @@
+
+.button{
+    margin-left: 10px;
+    height: 26px;
+    box-sizing: border-box;
+    padding: 0px 10px;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    font-weight: 500 !important;
+    font-size: 11px;
+    border: none;
+    background-color: #0854A1;
+    border-radius: 2px;
+    color: #ffffff;
+}
+
+.button:hover{
+    background-color: #1473d3;
+}
+
+.button:active{
+    background-color: #042e58;
+}
+
+
+.buttonLabel{
+    margin-left: 5px;
+}

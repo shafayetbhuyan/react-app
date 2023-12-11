@@ -2,7 +2,17 @@ import React, { useState } from 'react';
 import List from "../../../list/List";
 import PageHeader from "../../../page-header/PageHeader";
 import style from './PsuList.module.css'
-import { ResetButton, SearchButton } from '../../../button/Button';
+import { SearchFormButtons } from '../../../button/Button';
+
+import Select from 'react-select';
+const aquaticCreatures = [
+    { label: 'Shark', value: 'Shark' },
+    { label: 'Dolphin', value: 'Dolphin' },
+    { label: 'Whale', value: 'Whale' },
+    { label: 'Octopus', value: 'Octopus' },
+    { label: 'Crab', value: 'Crab' },
+    { label: 'Lobster', value: 'Lobster' },
+  ];
 
 const columns = [
     {
@@ -59,7 +69,14 @@ const rows = [
 
 export default function PsuList() {
 
-    const [name, setName] = useState("");
+    const submitForm = (e) =>{
+        e.preventDefault();
+        
+        const formData = new FormData(e.target);
+        const payload = Object.fromEntries(formData);
+
+        console.log(payload);
+    }
 
     const data = {
         columns: columns,
@@ -70,17 +87,22 @@ export default function PsuList() {
         <>
             <PageHeader value='PSU List' />
 
-            <form className={style.searchForm}>
+            <form className={style.searchForm} onSubmit={submitForm}>
                 <div className={style.input} >
-                    <label className={`${style.inputLabel} `} >Name</label>
-                    <input type="text" className={style.inputField} value={name} onChange={(e) => setName(e.target.value)} />
+                    <label className={`${style.inputLabel} `} >First Name</label>
+                    <input type="text" name='firstName' className={style.inputField} />
                 </div>
                 <div className={style.input} >
-                    <label className={style.inputLabel} >Name</label>
-                    <input type="text" className={style.inputField} value={name} onChange={(e) => setName(e.target.value)} />
+                    <label className={style.inputLabel} >Last Name</label>
+                    <input type="text" name='lastName' className={style.inputField} />
                 </div>
-                <SearchButton/>
-                <ResetButton />
+                <div className={style.input} >
+                    <label className={style.inputLabel} >Select</label>
+                    <Select options={aquaticCreatures} className={style.inputSelect} name='select' />
+                </div>
+
+                <SearchFormButtons />
+
             </form>
 
             <List data={data} />

@@ -9,7 +9,9 @@
 .inputLabel{
     display: block;
     margin: 1px 2px 0px 2px;
-    font-size: 0.8rem;
+    font-size: 12px;
+    font-weight: 600;
+    color: #152434;
 }
 
 .margin5{
@@ -26,6 +28,7 @@
     height: 26px;
     border: 1px solid #caced2;
     padding: 0 0.3125rem!important;
+    box-sizing: border-box;
 }
 
 .inputField:focus,
