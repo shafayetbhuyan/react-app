@@ -158,9 +158,9 @@ export default function PsuList() {
 
                 */}
 
-                <SearchInput name='firstName' label='First Name'/>
-                <SearchInput name='lastName' label='Last Name'/>
-                <SearchInputSelect name='select2' label='Last Name' />
+                <SearchInput name='search.firstName.contains' label='First Name'/>
+                <SearchInput name='search.lastName.contains' label='Last Name'/>
+                <SearchInputSelect name='search.select2.eq' label='Last Name' dataUrl='https://reqres.in/api/users' optionLabel='first_name' optionValue='id' />
 
                 <SearchFormButtons />
 

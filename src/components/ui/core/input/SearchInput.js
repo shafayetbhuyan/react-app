@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import style from './SearchInput.module.css';
 import Select from 'react-select';
-import axios from 'axios';
+import AsyncSelect from 'react-select/async';
+import { fetchData } from '../../../../data/api/DataApi';
 
 export function SearchInput(props) {
     return (
@@ -15,6 +16,10 @@ export function SearchInput(props) {
 }
 
 export function SearchInputSelect(props) {
+
+    const [inputValue, setInputValue] = useState('');
+    const [selectedOption, setSelectedOption] = useState(null);
+    const [pageNumber, setPageNumber] = useState(1);
 
     const colorStyles = {
         control: (provided, state) => ({
@@ -51,13 +56,36 @@ export function SearchInputSelect(props) {
             ...provided,
             height: '21px',
         }),
+        menuList: (provided) => ({
+            ...provided,
+            maxHeight: "50px",
+           "::-webkit-scrollbar": {
+             width: "4px"
+           },
+           "::-webkit-scrollbar-track": {
+             background: "#caced2"
+           },
+           "::-webkit-scrollbar-thumb": {
+             background: "#888"
+           },
+           "::-webkit-scrollbar-thumb:hover": {
+             background: "#555"
+           }
+        })
     };
 
-    const handleChange = (selectedOption, actionMeta) => {
-        console.log("handleChange", selectedOption, actionMeta);
+    const handleChange = (selectedOption) => {
+        // console.log("handleChange", selectedOption, actionMeta);
+        setSelectedOption(selectedOption);
     };
-    const handleInputChange = (inputValue, actionMeta) => {
-        console.log("handleInputChange", inputValue, actionMeta);
+    const handleInputChange = (inputValue) => {
+        // console.log("handleInputChange", inputValue);
+        setInputValue(inputValue);
+    };
+    const handleOnMenuScrollToBottom = (event) => {
+        console.log("handleOnMenuScrollToBottom", event);
+        // setPageNumber( pageNumber+1 );
+        // setInputValue(inputValue);
     };
 
     const aquaticCreatures = [
@@ -69,11 +97,31 @@ export function SearchInputSelect(props) {
         { label: 'Lobster', value: 'Lobster' },
     ];
 
+
+    const fetchDataforDropDown = () => {
+        console.log('pageNumber' + pageNumber);
+        return fetchData( props.dataUrl ,null, 5, pageNumber);
+    }
+
     return (
         <>
             <div className={style.input} >
                 <label className={style.inputLabel} > {props.label} </label>
-                <Select options={aquaticCreatures} name={props.name} onChange={handleChange} onInputChange={handleInputChange} styles={colorStyles} />
+                <AsyncSelect
+                    cacheOptions
+                    defaultOptions
+                    value={selectedOption}
+                    // options={dropdownData}
+                    getOptionLabel={(e) => e[props.optionLabel]}
+                    getOptionValue={(e) => e[props.optionValue]}
+                    loadOptions={fetchDataforDropDown}
+                    onChange={handleChange}
+                    onInputChange={handleInputChange}
+                    onMenuScrollToBottom={handleOnMenuScrollToBottom}
+                    isClearable={true}
+                    name={props.name}
+                    styles={colorStyles} 
+                    />
             </div>
         </>
     );
