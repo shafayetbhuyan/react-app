@@ -6,19 +6,19 @@ const prepareSearchParams = (pageSize, pageNumber, data) => {
     if(data){
         searchParams = objectToSearchParams(data);
     }
-    if(pageSize){
-        searchParams += '&per_page='+ pageSize;
-    }else{
-        searchParams += '&pageSize=50';
-    }
-    if(pageNumber){
-        searchParams += '&page='+ pageNumber;
-    }
+    // if(pageSize){
+    //     searchParams += '&per_page='+ pageSize;
+    // }else{
+    //     searchParams += '&pageSize=50';
+    // }
+    // if(pageNumber){
+    //     searchParams += '&page='+ pageNumber;
+    // }
 
     if (searchParams.startsWith('&')) {
         return '?' + searchParams.slice(1);
     } else {
-        return searchParams;
+        return '?'+searchParams;
     }
 }
 

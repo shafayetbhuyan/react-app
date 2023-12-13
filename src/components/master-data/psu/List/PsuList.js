@@ -132,6 +132,8 @@ export default function PsuList() {
         rows: rows
     }
 
+    const psuSearchParams = {"search.psuNo.like":"", "pageNumber" : 1, "pageSize": 500,};
+
     return (
         <>
             <PageHeader value='PSU List' />
@@ -160,7 +162,7 @@ export default function PsuList() {
 
                 <SearchInput name='search.firstName.contains' label='First Name'/>
                 <SearchInput name='search.lastName.contains' label='Last Name'/>
-                <SearchInputSelect name='search.select2.eq' label='Last Name' dataUrl='https://reqres.in/api/users' optionLabel='first_name' optionValue='id' />
+                <SearchInputSelect name='search.psuNo.like' label='Psu No' dataUrl='http://localhost:8960/api/masterData/Psu/List/' optionLabel='psuNo' optionValue='id' searchParams={psuSearchParams} />
 
                 <SearchFormButtons />
 
