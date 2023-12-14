@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { MASTER_DATA_BASE_URL } from '../../utils/ServiceUrls';
 
 const prepareSearchParams = (pageSize, pageNumber, data) => {
     let searchParams = '';
@@ -43,3 +44,14 @@ export const fetchData = async (url, data, pageSize, pageNumber) => {
       throw error;
     }
 };
+
+export const PostRequest = async (formData,url) => {
+    try {
+      const response = await axios.post(MASTER_DATA_BASE_URL+url, formData);
+      console.log('Form data successfully sent to the server:', response.data);
+      return response.data;
+    } catch (error) {
+      console.error('An error occurred while sending form data:', error);
+      throw error;
+    }
+  };
