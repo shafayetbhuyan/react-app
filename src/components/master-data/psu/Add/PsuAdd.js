@@ -3,6 +3,7 @@ import PageHeader from "../../../layout/page-header/PageHeader";
 import { useState, useEffect } from "react";
 import style from './PsuAdd.module.css'
 import { PostRequest } from '../../../../data/api/DataApi';
+import InputText from '../../../ui/core/input/InputText/InputText';
 import axios from 'axios';
 function PsuAdd() {
   const [psuData, setPsuData] = useState({
@@ -15,19 +16,19 @@ function PsuAdd() {
   const handleForm = (e) => {
     console.log(e.target.value)
     setPsuData(
-      
+
       (formProps) => ({ ...formProps, [e.target.name]: e.target.value }));
   };
   const requestBody = JSON.stringify({
     "searchFieldList": [],
     "orderByList": [{
-      "fieldName":"id",
-      "fieldValue":"asc"
+      "fieldName": "id",
+      "fieldValue": "asc"
     }],
     "pageNumber": 1,
     "pageSize": 3
   });
-  
+
   var requestOptions = {
     method: 'GET',
     //body: requestBody,
@@ -64,7 +65,7 @@ function PsuAdd() {
     //   .catch(error => console.error('Error fetching options:', error));
   }, []);
 
-  
+
 
 
 
@@ -78,10 +79,14 @@ function PsuAdd() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    console.log("PsuData", psuData);
+    const formData = new FormData(event.target);
+    const payload = Object.fromEntries(formData);
+
+    console.log("PsuData", payload);
+
     try {
       // Call the Request component to handle the form submission
-       PostRequest(psuData,'/Psu/Add/');
+      PostRequest(psuData, '/Psu/Add/');
       // You can perform further actions here if needed
     } catch (error) {
       // Handle errors if needed
@@ -96,8 +101,8 @@ function PsuAdd() {
       <div className={style.pageContent}>
 
         <form onSubmit={handleSubmit}>
-          <div className={style.inputblock}>
-            <label className={style.label}>
+          {/* <div className={style.inputblock}> */}
+          {/* <label className={style.label}>
               PSU No <span className={style.requiredLabel}>*</span>
             </label>
             <input
@@ -107,127 +112,18 @@ function PsuAdd() {
               value={psuData.psuNo}
               onChange={handleForm}
             />
-          </div>
-          <div className={style.inputblock}>
-            <label className={style.label}>
-              Zila <span className={style.requiredLabel}>*</span>
-            </label>
-            <input
-              className={style.input}
-              type="text"
-              name="locLocationsDistrictId"
-              value={psuData.locLocationsDistrictId}
-              onChange={handleForm}
-            />
-          </div>
-          <div className={style.inputblock}>
-            <label className={style.label}>
-              Zila Code <span className={style.requiredLabel}>*</span>
-            </label>
-            <input
-              className={style.input}
-              type="text"
-              name="zilaCode"
-              value={psuData.zilaCode}
-              onChange={handleForm}
-            />
-          </div>
-          <div className={style.inputblock}>
-            <label className={style.label}>
-              Upazila/Thana <span className={style.requiredLabel}>*</span>
-            </label>
-            <input
-              className={style.input}
-              type="text"
-              name="locLocationsUpazilaId"
-              value={psuData.locLocationsUpazilaId}
-              onChange={handleForm}
-            />
-          </div>
-          <div className={style.inputblock}>
-            <label className={style.label}>
-            Upazila/Thana Code <span className={style.requiredLabel}>*</span>
-            </label>
-            <input
-              className={style.input}
-              type="text"
-              name="upazilaThanaCode"
-              value={psuData.upazilaThanaCode}
-              onChange={handleForm}
-            />
-          </div>
-          <div className={style.inputblock}>
-            <label className={style.label}>
-            Union/Ward <span className={style.requiredLabel}>*</span>
-            </label>
-            <input
-              className={style.input}
-              type="text"
-              name="unionWard"
-              value={psuData.unionWard}
-              onChange={handleForm}
-            />
-          </div>
-          <div className={style.inputblock}>
-            <label className={style.label}>
-            Union/Ward Code <span className={style.requiredLabel}>*</span>
-            </label>
-            <input
-              className={style.input}
-              type="text"
-              name="unionWardCode"
-              value={psuData.unionWardCode}
-              onChange={handleForm}
-            />
-          </div>
-          <div className={style.inputblock}>
-            <label className={style.label}>
-            Mouza/Moholla <span className={style.requiredLabel}>*</span>
-            </label>
-            <input
-              className={style.input}
-              type="text"
-              name="mouzaMoholla"
-              value={psuData.mouzaMoholla}
-              onChange={handleForm}
-            />
-          </div>
-          <div className={style.inputblock}>
-            <label className={style.label}>
-            Mouza/Moholla Code <span className={style.requiredLabel}>*</span>
-            </label>
-            <input
-              className={style.input}
-              type="text"
-              name="mouzaMohollaCode"
-              value={psuData.mouzaMohollaCode}
-              onChange={handleForm}
-            />
-          </div>
-          <div className={style.inputblock}>
-            <label className={style.label}>
-            RMO Code <span className={style.requiredLabel}>*</span>
-            </label>
-            <input
-              className={style.input}
-              type="text"
-              name="rmaCode"
-              value={psuData.rmaCode}
-              onChange={handleForm}
-            />
-          </div>
-      <div>
-      <label htmlFor="dropdown">Select an option:</label>
-      <select id="dropdown" value={selectedOption} onChange={handleSelectChange}>
-        <option value="" disabled>Select an option</option>
-        {options.map(option => (
-          <option key={option.id} value={option.value}>
-            {option.label}
-          </option>
-        ))}
-      </select>
-      <p>Selected option: {selectedOption}</p>
-    </div>
+          </div> */}
+          <InputText label="PSU No" placeholder="" name="psuNo" />
+          <InputText label="Zila" placeholder="" name="locLocationsDistrictId" />
+          <InputText label="Zila Code" placeholder="" name="zilaCode" />
+          <InputText label="Upazila/Thana" placeholder="" name="locLocationsUpazilaId" />
+          <InputText label="Upazila/Thana Code" placeholder="" name="upazilaThanaCode" />
+          <InputText label="Union/Ward" placeholder="" name="unionWard" />
+          <InputText label="Union/Ward Code" placeholder="" name="unionWardCode" />
+          <InputText label="Mouza/Moholla" placeholder="" name="mouzaMoholla" />
+          <InputText label="Mouza/Moholla Code" placeholder="" name="mouzaMohollaCode" />
+          <InputText label="RMO Code" placeholder="" name="rmaCode" />
+
           <div
             className={style.submitButtonWrapper}
           >

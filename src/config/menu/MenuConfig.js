@@ -24,12 +24,12 @@ export const sideMenu = [
     icon: faTable,
     depth: 1,
     menu: [{
-      to: "/psu",
+      to: "/Psu",
       label: "PSU",
       icon: faTable,
       depth: 2,
       menu: [{
-        to: "/add",
+        to: "/Add",
         label: "Add",
         icon: faTable,
         depth: 3

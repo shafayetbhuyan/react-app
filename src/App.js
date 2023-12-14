@@ -16,7 +16,7 @@ function App() {
           <div className='main'>
             <Routes>
               <Route path="/dashboard" exact element={<Home />} />
-              <Route path="/svrs/master-data/Psu/Add/" exact element={<PsuAdd />} />
+              <Route path="/master-data/Psu/Add/" exact element={<PsuAdd />} />
               <Route path="/master-data/psu/list" exact element={<PsuList />} />
             </Routes>
           </div>
