@@ -22,37 +22,37 @@ const columns = [
         headerAlign: 'center',
     },
     {
-        field: 'firstName',
-        headerName: 'First name',
+        field: 'psuNo',
+        headerName: 'PSU No',
         width: 150,
         editable: true,
         headerAlign: 'center',
     },
-    {
-        field: 'lastName',
-        headerName: 'Last name',
-        width: 150,
-        editable: true,
-        headerAlign: 'center',
-    },
-    {
-        field: 'age',
-        headerName: 'Age',
-        type: 'number',
-        width: 110,
-        editable: true,
-        headerAlign: 'center',
-    },
-    {
-        field: 'fullName',
-        headerName: 'Full name',
-        description: 'This column has a value getter and is not sortable.',
-        sortable: false,
-        headerAlign: 'center',
-        width: 160,
-        valueGetter: (params) =>
-            `${params.row.firstName || ''} ${params.row.lastName || ''}`,
-    },
+    // {
+    //     field: 'lastName',
+    //     headerName: 'Last name',
+    //     width: 150,
+    //     editable: true,
+    //     headerAlign: 'center',
+    // },
+    // {
+    //     field: 'age',
+    //     headerName: 'Age',
+    //     type: 'number',
+    //     width: 110,
+    //     editable: true,
+    //     headerAlign: 'center',
+    // },
+    // {
+    //     field: 'fullName',
+    //     headerName: 'Full name',
+    //     description: 'This column has a value getter and is not sortable.',
+    //     sortable: false,
+    //     headerAlign: 'center',
+    //     width: 160,
+    //     valueGetter: (params) =>
+    //         `${params.row.firstName || ''} ${params.row.lastName || ''}`,
+    // },
 ];
 
 const rows = [
