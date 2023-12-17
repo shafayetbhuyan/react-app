@@ -17,7 +17,7 @@ function App() {
             <Routes>
               <Route path="/dashboard" exact element={<Home />} />
               <Route path="/master-data/Psu/Add/" exact element={<PsuAdd />} />
-              <Route path="/master-data/psu/list" exact element={<PsuList />} />
+              <Route path="/master-data/Psu/List/" exact element={<PsuList />} />
             </Routes>
           </div>
         </Layout>

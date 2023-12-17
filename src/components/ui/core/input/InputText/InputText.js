@@ -1,17 +1,19 @@
 import style from './InputText.module.css';
 import React, { useState } from 'react';
 
-const InputText = ({ label, placeholder, name}) => {
+const InputText = ({ label, placeholder, name,required}) => {
 
     return (
         <div className={style.inputblock}>
             <label className={style.label}>
-                {label} <span className={style.requiredLabel}>*</span>
+                {label} 
+                {required && <span className={style.requiredLabel}>*</span>}
             </label>
             <input
                 className={style.input}
                 type="text"
                 name={name}
+                required = {required}
             />
         </div>
     );
