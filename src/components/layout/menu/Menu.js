@@ -10,9 +10,11 @@ function Menu() {
     const [activeItem, setActiveItem] = useState({});
 
     const resolveLinkPath = (childTo, parentTo) => `${parentTo}${childTo}`;
+    const resolveKey = (childKey, parentKey) => `${parentKey}_${childKey}`;
 
-    const toggleSubMenu = (item, index, depth) => {
-        const key = depth + '' + index;
+    const toggleSubMenu = (item, key) => {
+        // const key = depth + '' + index;
+        console.log(key);
         if (item.menu) {
             setSubMenuVisible({
                 ...subMenuVisible,
@@ -25,31 +27,36 @@ function Menu() {
         });
     };
 
-    const renderMenu = (items, parentPath) => {
+    const renderMenu = (items, parentPath, parentKey) => {
+
+        console.log(items, parentPath, parentKey);
+
         return (
             <ul>
                 {items.map((item, index) => {
                     const currentPath = resolveLinkPath(item.to, parentPath);
+                    const key = `${item.depth}${index}`;
+                    const currentKey = resolveKey(key, parentKey);
                     return (
-                        <li key={`${item.depth}${index}`}>
+                        <li key={currentKey}>
                             <NavLink
                                 exact
                                 to={currentPath}
-                                className={`${style.navItem} ${item.depth !== 1 ? style.subMenu : ''} ${item.menu ? style.hasSubMenu : ''} ${activeItem[`${item.depth}${index}`] ? `${style.activeItem}` : `${style.inActiveItem}`}`}
-                                onClick={() => toggleSubMenu(item, index, item.depth)}
+                                className={`${style.navItem} ${item.depth !== 1 ? style.subMenu : ''} ${item.menu ? style.hasSubMenu : ''} ${activeItem[currentKey] ? `${style.activeItem}` : `${style.inActiveItem}`}`}
+                                onClick={() => toggleSubMenu(item, currentKey)}
                             >
                                 <FontAwesomeIcon icon={item.icon} className={style.navIcon} />
                                 <span className={style.navLabel}>{item.label}</span>
                                 {
                                     item.menu &&
                                     (
-                                        <ChevronDownIcon className={`${style.navItemHeaderChevron} ${subMenuVisible[`${item.depth}${index}`] && style.chevronExpanded}`} />
+                                        <ChevronDownIcon className={`${style.navItemHeaderChevron} ${subMenuVisible[currentKey] && style.chevronExpanded}`} />
                                     )
                                 }
 
                             </NavLink>
 
-                            {subMenuVisible[`${item.depth}${index}`] && item.menu && renderMenu(item.menu, currentPath)}
+                            {subMenuVisible[currentKey] && item.menu && renderMenu(item.menu, currentPath, currentKey)}
 
                         </li>
                     );
@@ -60,7 +67,7 @@ function Menu() {
 
     return (
         <div>
-            <div className={style.mainMenu}>{renderMenu(sideMenu, '')}</div>
+            <div className={style.mainMenu}>{renderMenu(sideMenu, '', '')}</div>
         </div>
     );
 }
