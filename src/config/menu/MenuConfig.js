@@ -29,13 +29,13 @@ export const sideMenu = [
       icon: faTable,
       depth: 2,
       menu: [{
-        to: "/Add",
+        to: "/Add/",
         label: "Add",
         icon: faTable,
         depth: 3
       },
       {
-        to: "/list",
+        to: "/List/",
         label: "List",
         icon: faTable,
         depth: 3

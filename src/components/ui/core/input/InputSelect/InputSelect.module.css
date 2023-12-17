@@ -29,11 +29,12 @@
     transition: all .15s linear;
     transition: box-shadow 0 linear;
     height: 25px;
-    border: 1px solid #000;
+    /* border: 1px solid #000; */
+    border: 1px solid rgb(130, 130, 130);
     padding: 0 0.3125rem!important;
     box-sizing: border-box;
     width: 265px;
-    color: 	#333333;
+    /* color: 	#333333; */
 }
 
 .inputField:focus,

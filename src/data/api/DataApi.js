@@ -7,14 +7,14 @@ const prepareSearchParams = (pageSize, pageNumber, data) => {
     if(data){
         searchParams = objectToSearchParams(data);
     }
-    // if(pageSize){
-    //     searchParams += '&per_page='+ pageSize;
-    // }else{
-    //     searchParams += '&pageSize=50';
-    // }
-    // if(pageNumber){
-    //     searchParams += '&page='+ pageNumber;
-    // }
+    if(pageSize){
+        searchParams += '&pageSize='+ pageSize;
+    }else{
+        searchParams += '&pageSize=50';
+    }
+    if(pageNumber){
+        searchParams += '&pageNumber='+ pageNumber;
+    }
 
     if (searchParams.startsWith('&')) {
         return '?' + searchParams.slice(1);
@@ -48,7 +48,7 @@ export const fetchData = async (url, data, pageSize, pageNumber) => {
 export const PostRequest = async (formData,url) => {
     try {
       const response = await axios.post(MASTER_DATA_BASE_URL+url, formData);
-      console.log('Form data successfully sent to the server:', response.data);
+      console.log('Form data successfully sent to the server:');
       return response.data;
     } catch (error) {
       console.error('An error occurred while sending form data:', error);

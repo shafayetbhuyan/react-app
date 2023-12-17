@@ -15,29 +15,25 @@ export function SearchInput(props) {
 }
 
 const aquaticCreatures = [
-    { psuNo: 'Shark', id: 'Shark' },
-    { psuNo: 'Dolphin', id: 'Dolphin' },
-    { psuNo: 'Whale', id: 'Whale' },
-    { psuNo: 'Octopus', id: 'Octopus' },
-    { psuNo: 'Crab', id: 'Crab' },
-    { psuNo: 'Lobster', id: 'Lobster' },
+    { psuNo: '', id: '' },
 ];
 
-
 export function InputSelect(props) {
+    
+    // const {label,name,} = props;
+ 
     const [inputValue, setInputValue] = useState('');
     const [selectedOption, setSelectedOption] = useState(null);
     const [pageNumber, setPageNumber] = useState(1);
     const [options, setOptions] = useState(aquaticCreatures);
     const [searchParams, setSearchParams] = useState(props.searchParams);
-
     const colorStyles = {
         control: (provided, state) => ({
             ...provided,
             background: '#fff',
-            borderColor: '#caced2',
-            minHeight: '26px',
-            height: '25px',
+            borderColor: '#828282',
+            minHeight: '29px',
+            height: '29px',
             fontSize: 13,
             boxSizing: 'border-box',
             borderRadius: '4px',
@@ -47,7 +43,7 @@ export function InputSelect(props) {
             return {
                 ...provided,
                 padding: '4px 6px',
-                fontSize: 12,
+                fontSize: 13,
             }
         },
         valueContainer: (provided, state) => ({
@@ -64,7 +60,7 @@ export function InputSelect(props) {
         }),
         indicatorsContainer: (provided, state) => ({
             ...provided,
-            height: '21px',
+            height: '25px',
         }),
         menuList: (provided) => ({
             ...provided,
@@ -105,7 +101,7 @@ export function InputSelect(props) {
             return newObj;
         });
         let data = await fetchData(props.dataUrl, searchParams, null, null);
-        console.log(data.length);
+        
 
         if (data.length > 0) {
             setOptions((prevData) => {
