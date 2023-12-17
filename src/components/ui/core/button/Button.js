@@ -27,3 +27,15 @@ export function SearchFormButtons() {
         </>
     );
 }
+
+export function SaveButton() {
+    return (
+        <div
+            className={style.submitButtonWrapper}
+          >
+            <button className={style.submitButton}>
+              SAVE
+            </button>
+          </div>
+    );
+}

@@ -5,14 +5,14 @@
 }
 .pageContent {
   height: 640px;
-  width: 400px;
+  width: 280px;
   background-color: #f0f0f0;
   display: block;
   margin-top: 12px;
   margin-left: 12px;
   border-radius: 5px;
 }
-.inputblock {
+/* .inputblock {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -62,13 +62,12 @@
 
 .float {
   justify-content: flex-end;
-}
+} */
 
-.submitButton {
+/* .submitButton {
   background-color: #10AC84;
   padding: 0.5rem 20px 0.5rem 22px;
   font-size: 10px;
-  /* display: inline-flex; */
   align-items: center;
   margin-top: 10px;
   margin-left: 11px;
@@ -83,4 +82,4 @@
 .button-success {
   color: white;
   background-color: #03bb56;
-} 
+}  */

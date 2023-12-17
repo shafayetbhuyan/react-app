@@ -4,7 +4,8 @@ import { useState, useEffect } from "react";
 import style from './PsuAdd.module.css'
 import { PostRequest } from '../../../../data/api/DataApi';
 import InputText from '../../../ui/core/input/InputText/InputText';
-import axios from 'axios';
+import { InputSelect } from '../../../ui/core/input/InputSelect/InputSelect';
+import { SaveButton } from '../../../ui/core/button/Button';
 function PsuAdd() {
   const [psuData, setPsuData] = useState({
     psuNo: '',
@@ -19,6 +20,7 @@ function PsuAdd() {
 
       (formProps) => ({ ...formProps, [e.target.name]: e.target.value }));
   };
+  const psuSearchParams = {"search.psuNo.like":"", "pageNumber" : 1, "pageSize": 500,};
   const requestBody = JSON.stringify({
     "searchFieldList": [],
     "orderByList": [{
@@ -47,34 +49,7 @@ function PsuAdd() {
       })
       .catch((error) => console.log(error));
 
-
-
-
-
-
-
-
-
-
-
-    // axios.post('http://localhost:8960/api/masterData/Locations/List/', requestBody)
-    //   .then(response => 
-    //     console.log(response)
-    //     // setOptions(response.data)
-    //     )
-    //   .catch(error => console.error('Error fetching options:', error));
   }, []);
-
-
-
-
-
-
-
-
-
-
-
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -101,20 +76,10 @@ function PsuAdd() {
       <div className={style.pageContent}>
 
         <form onSubmit={handleSubmit}>
-          {/* <div className={style.inputblock}> */}
-          {/* <label className={style.label}>
-              PSU No <span className={style.requiredLabel}>*</span>
-            </label>
-            <input
-              className={style.input}
-              type="text"
-              name="psuNo"
-              value={psuData.psuNo}
-              onChange={handleForm}
-            />
-          </div> */}
           <InputText label="PSU No" placeholder="" name="psuNo" />
           <InputText label="Zila" placeholder="" name="locLocationsDistrictId" />
+          {/* <SearchInputSelect name='search.psuNo.like' label='Psu No' dataUrl='http://localhost:8960/api/masterData/Psu/List/' optionLabel='psuNo' optionValue='id' searchParams={psuSearchParams} /> */}
+          <InputSelect name='search.psuNo.like' label='District' dataUrl='http://localhost:8960/api/masterData/Psu/List/' optionLabel='psuNo' optionValue='id' searchParams={psuSearchParams} />
           <InputText label="Zila Code" placeholder="" name="zilaCode" />
           <InputText label="Upazila/Thana" placeholder="" name="locLocationsUpazilaId" />
           <InputText label="Upazila/Thana Code" placeholder="" name="upazilaThanaCode" />
@@ -124,13 +89,8 @@ function PsuAdd() {
           <InputText label="Mouza/Moholla Code" placeholder="" name="mouzaMohollaCode" />
           <InputText label="RMO Code" placeholder="" name="rmaCode" />
 
-          <div
-            className={style.submitButtonWrapper}
-          >
-            <button className={style.submitButton}>
-              SAVE
-            </button>
-          </div>
+          <SaveButton />
+          
         </form>
 
       </div>
