@@ -24,7 +24,7 @@ export default function List(props) {
         response.then(
             (resp) => {
                 console.log(resp); // "Success"
-                setRows(resp.data.data);
+                setRows(resp.data);
             }
         );
 

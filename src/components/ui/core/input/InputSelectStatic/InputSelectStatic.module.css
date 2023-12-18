@@ -1,0 +1,39 @@
+
+.input{
+    display: inline-block;
+    margin-left: 5px;
+    color: #555555;
+    width: 215px;
+}
+
+.inputLabel{
+    display: block;
+    margin: 1px 2px 0px 2px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #152434;
+}
+
+.inputField{
+    border-color: #caced2!important;
+    margin-bottom: 6px!important;
+    border-radius: 2px;
+    overflow: hidden;
+    transition: all .15s linear;
+    transition: box-shadow 0 linear;
+    height: 26px;
+    border: 1px solid #caced2;
+    padding: 0 0.3125rem!important;
+    box-sizing: border-box;
+    width: 100%;
+    color: 	#333333;
+}
+
+.inputField:focus,
+.inputField:focus-visible{
+    outline-offset: 0;
+    border-color: #4391df!important;
+    box-shadow: none!important;
+    border: 1px solid #4391df;
+}
+
