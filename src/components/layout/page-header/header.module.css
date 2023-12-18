@@ -1,0 +1,11 @@
+.headerDiv{
+    font-size: 15px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    height: 30px;
+    background-color: #F0F0F0;
+    padding: 2px 5px;
+    border-radius: 3px;
+    /* justify-content: center; */
+}

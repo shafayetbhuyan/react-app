@@ -1,0 +1,151 @@
+.mainMenu {
+  height: 70vh;
+  overflow-y: scroll;
+  padding-bottom: 80px;
+}
+
+
+/* .mainMenu li a{
+  color: #FFFFFF !important;
+}
+.mainMenu li a.active{
+  color: #10AC84 !important;
+  font-weight: 600;
+}
+.mainMenu li a:hover{
+  background: #19a19a;
+  color: #FFFFFF !important;
+}
+
+.active {
+  color: #10AC84 !important;
+}
+*/
+
+/* .hasSubMenu{
+  background-color: #123f3d;
+} */
+
+.navItem {
+  padding: 0.5rem 0.3rem 0.5rem 0.0rem;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+}
+
+.displayBlock {
+  display: block;
+}
+
+.displayNone {
+  display: none;
+}
+
+
+
+.activeItem{
+  color: #19a19a !important;
+}
+.activeItem:hover{
+  color: #ffffff !important;
+}
+
+.inActiveItem{
+  color: #ffffff !important;
+}
+
+
+
+.navItem:hover {
+  color: #ffffff;
+  background-color: #19a19a;
+}
+
+.activeNavItem {
+  color: #ffffff;
+  background-color: #152434;
+}
+
+.navIcon {
+  color: #ffffff;
+  width: 1.2rem;
+  height: 0.9rem;
+  margin-right: 0.2rem;
+}
+
+.navLabel {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.navItemHeaderButton {
+  width: 100%;
+  outline: none;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.navItemHeaderChevron {
+  color: #ffffff;
+  width: 1rem;
+  height: 1rem;
+  margin-left: auto;
+  transition: all 0.25s;
+  transform: rotate(-90deg);
+}
+
+.chevronExpanded {
+  transform: rotate(0deg);
+}
+
+.navChildrenBlock {
+  background-color: #152434;
+  margin-left: 20px;
+  border-left: solid 1px #a09595;
+  background-origin: border-box;
+}
+
+.subMenu {
+  border-left: solid 1px #a09595;
+  background-color: #102f4c;
+}
+
+.subMenu:before {
+  content: "-";
+  color: #a09595;
+  position: relative;
+  display: block;
+  height: 15px;
+  width: 10px;
+  align-items: center;
+  margin: 0px;
+  padding: 0px;
+  right: 1px;
+  display: flex;
+}
+
+
+/* width */
+.mainMenu::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Track */
+.mainMenu::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 10px;
+}
+
+/* Handle */
+.mainMenu::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, .45);
+  border-radius: 10px;
+  margin-left: 10px;
+}
+
+/* Handle on hover */
+.mainMenu::-webkit-scrollbar-thumb:hover {
+  background: #19a19a;
+}
