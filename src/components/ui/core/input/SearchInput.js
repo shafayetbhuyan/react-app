@@ -157,7 +157,6 @@ export function SearchInputSelect(props) {
                     cacheOptions
                     defaultOptions
                     value={selectedOption}
-                    // options={dropdownData}
                     getOptionLabel={(e) => e[props.optionLabel]}
                     getOptionValue={(e) => e[props.optionValue]}
                     options={options}

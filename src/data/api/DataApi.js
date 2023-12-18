@@ -38,6 +38,17 @@ export const fetchData = async (url, data, pageSize, pageNumber) => {
     url += prepareSearchParams(pageSize, pageNumber, data);
     try {
       const response = await axios.get(url);
+      return response.data.data;
+    } catch (error) {
+      console.error('Error fetching data:', error);
+      throw error;
+    }
+};
+
+export const fetchDataList = async (url, data, pageSize, pageNumber) => {
+    url += prepareSearchParams(pageSize, pageNumber, data);
+    try {
+      const response = await axios.get(url);
       return response.data;
     } catch (error) {
       console.error('Error fetching data:', error);

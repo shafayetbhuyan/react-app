@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import { DataGrid } from '@mui/x-data-grid';
 import axios from 'axios';
 import style from './List.module.css';
-import { fetchData } from '../../../../data/api/DataApi';
+import { fetchDataList } from '../../../../data/api/DataApi';
 
 
 export default function List(props) {
@@ -20,7 +20,7 @@ export default function List(props) {
         //   }
         // };
 
-        let response = fetchData("http://localhost:8960/api/masterData/Psu/List/", null, null, null);
+        let response = fetchDataList("http://localhost:8960/api/masterData/Psu/List/", null, null, null);
         response.then(
             (resp) => {
                 console.log(resp); // "Success"
