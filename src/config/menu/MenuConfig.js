@@ -10,129 +10,144 @@
 // } from '@heroicons/react/24/solid';
 // } from '@heroicons/react/outline';
 import { faTable } from "@fortawesome/free-solid-svg-icons";
+import { faDashboard } from "@fortawesome/free-solid-svg-icons";
+import { faScroll } from "@fortawesome/free-solid-svg-icons";
+import { faBuilding } from "@fortawesome/free-solid-svg-icons";
+import { faArchive } from "@fortawesome/free-solid-svg-icons";
+import { faBookAtlas } from "@fortawesome/free-solid-svg-icons";
+import { faDriversLicense } from "@fortawesome/free-solid-svg-icons";
+import { faReceipt } from "@fortawesome/free-solid-svg-icons";
+import { faLocation } from "@fortawesome/free-solid-svg-icons";
+import { faServer } from "@fortawesome/free-solid-svg-icons";
+import { faStore } from "@fortawesome/free-solid-svg-icons";
+import { faAdd } from "@fortawesome/free-solid-svg-icons";
+import { faList } from "@fortawesome/free-solid-svg-icons";
+import { faDatabase } from "@fortawesome/free-solid-svg-icons";
+import { faTimeline } from "@fortawesome/free-solid-svg-icons";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
 
 export const sideMenu = [
   {
     to: "/dashboard",
     label: "Dashboard",
-    icon: faTable,
+    icon: faDashboard,
     depth: 1
   },
   {
     to: "/master-data",
     label: "Master Data",
-    icon: faTable,
+    icon: faScroll,
     depth: 1,
     menu: [{
       to: "/Psu",
       label: "PSU",
-      icon: faTable,
+      icon: faDatabase,
       depth: 2,
       menu: [{
         to: "/Add/",
         label: "Add",
-        icon: faTable,
+        icon: faAdd,
         depth: 3
       },
       {
         to: "/List/",
         label: "List",
-        icon: faTable,
+        icon: faList,
         depth: 3
       }]
     },
     {
       to: "/khana",
       label: "Khana",
-      icon: faTable,
+      icon: faBuilding,
       depth: 2,
       menu: [{
         to: "/add",
         label: "Add",
-        icon: faTable,
+        icon: faAdd,
         depth: 3
       },
       {
         to: "/list",
         label: "List",
-        icon: faTable,
+        icon: faList,
         depth: 3
       }]
     },
     {
-      to: "/registerer",
+      to: "/Registerer",
       label: "Registerer",
-      icon: faTable,
+      icon: faArchive,
       depth: 2,
       menu: [{
-        to: "/add",
+        to: "/Add",
         label: "Add",
-        icon: faTable,
+        icon: faAdd,
         depth: 3
       },
       {
-        to: "/list",
+        to: "/List",
         label: "List",
-        icon: faTable,
+        icon: faList,
         depth: 3
       }]
     },
     {
       to: "/question",
       label: "Question",
-      icon: faTable,
+      icon: faBookAtlas,
       depth: 2,
       menu: [{
         to: "/schedule",
         label: "Schedule",
-        icon: faTable,
+        icon: faTimeline,
         depth: 3,
         menu: [{
           to: "/add",
           label: "Add",
-          icon: faTable,
+          icon: faAdd,
           depth: 4
         },
         {
           to: "/list",
           label: "List",
-          icon: faTable,
+          icon: faList,
           depth: 4
         }]
       },
       {
-        to: "/question-topic",
+        to: "/questionTopic",
         label: "Question Topic",
-        icon: faTable,
+        icon: faDriversLicense,
         depth: 3,
         menu: [{
-          to: "/add",
+          to: "/Add",
           label: "Add",
-          icon: faTable,
+          icon: faAdd,
           depth: 4
         },
         {
           to: "/list",
           label: "List",
-          icon: faTable,
+          icon: faList,
           depth: 4
         }]
       },
       {
         to: "/question",
         label: "Question",
-        icon: faTable,
+        icon: faReceipt,
         depth: 3,
         menu: [{
-          to: "/add",
+          to: "/Add",
           label: "Add",
-          icon: faTable,
+          icon: faAdd,
           depth: 4
         },
         {
           to: "/list",
           label: "List",
-          icon: faTable,
+          icon: faList,
           depth: 4
         }]
       }
@@ -143,31 +158,31 @@ export const sideMenu = [
   {
     to: "/submissions",
     label: "Submissions",
-    icon: faTable,
+    icon: faStore,
     depth: 1,
     menu: [{
       to: "/list",
       label: "List",
-      icon: faTable,
+      icon: faList,
       depth: 2
     }
     ]
   },
   {
-    to: "/user-locations",
+    to: "/userLocations",
     label: "User Locations",
-    icon: faTable,
+    icon: faLocation,
     depth: 1,
     menu: [{
-      to: "/add",
+      to: "/Add",
       label: "Add",
-      icon: faTable,
+      icon: faAdd,
       depth: 2
     },
     {
-      to: "/list",
+      to: "/List",
       label: "List",
-      icon: faTable,
+      icon: faList,
       depth: 2
     }
     ]
@@ -175,8 +190,32 @@ export const sideMenu = [
   {
     to: "/survey-live-locations",
     label: "Survey Live Locations",
-    icon: faTable,
+    icon: faLocation,
     depth: 1
+  },
+  {
+    to: "/settings",
+    label: "Settings",
+    icon: faServer,
+    depth: 1,
+    menu: [{
+      to: "/auth/User",
+      label: "Auth User",
+      icon: faUser,
+      depth: 2,
+      menu: [{
+        to: "/Add",
+        label: "Add",
+        icon: faAdd,
+        depth: 3
+      },
+      {
+        to: "/List",
+        label: "List",
+        icon: faList,
+        depth: 3
+      }]
+    }]
   }
 ];
 
