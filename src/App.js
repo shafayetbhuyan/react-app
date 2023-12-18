@@ -17,6 +17,7 @@ import QuestionTopicAdd from './components/master-data/question-topic/Add/Questi
 import QuestionTopicList from './components/master-data/question-topic/List/QuestionTopicList';
 import QuestionAdd from './components/master-data/question/Add/QuestionAdd';
 import QuestionList from './components/master-data/question/List/QuestionList';
+import PsuEdit from './components/master-data/psu/Edit/PsuEdit';
 
 function App() {
   const Home = () => <div>Home bmmmbmmb</div>;
@@ -33,6 +34,7 @@ function App() {
               <Route path="/settings/auth/user/Add/" exact element={<UserAdd />} />
               <Route path="/settings/auth/user/List/" exact element={<UserList />} />
               <Route path="/master-data/psu/Add/" exact element={<PsuAdd />} />
+              <Route path="/master-data/psu/Edit/:id/" exact element={<PsuEdit />} />
               <Route path="/master-data/psu/List/" exact element={<PsuList />} />
               <Route path="/master-data/khana/Add/" exact element={<KhanaAdd />} />
               <Route path="/master-data/khana/List/" exact element={<KhanaList />} />

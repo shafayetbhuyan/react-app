@@ -1,17 +1,17 @@
-import style from './InputText.module.css';
+import style from './InputHidden.module.css';
 import React, { useState } from 'react';
 
-const InputText = ({ label, placeholder, name,defaultValue, required,onChange}) => {
+const InputHidden = ({ label, placeholder, name,defaultValue, required,onChange}) => {
 
     return (
         <div className={style.inputblock}>
-            <label className={style.label}>
+            {/* <label className={style.label}>
                 {label} 
                 {required && <span className={style.requiredLabel}>*</span>}
-            </label>
+            </label> */}
             <input
                 className={style.input}
-                type="text"
+                type="hidden"
                 name={name}
                 defaultValue={defaultValue}
                 required = {required}
@@ -20,6 +20,6 @@ const InputText = ({ label, placeholder, name,defaultValue, required,onChange}) 
     );
 };
 
-export default InputText;
+export default InputHidden;
 
 

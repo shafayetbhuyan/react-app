@@ -5,8 +5,9 @@ import { PostRequest } from '../../../../data/api/DataApi';
 import InputText from '../../../ui/core/input/InputText/InputText';
 import { InputSelect } from '../../../ui/core/input/InputSelect/InputSelect';
 import { SaveButton } from '../../../ui/core/button/Button';
-import { MASTER_DATA_BASE_URL, LOCATION_DISTRICT_URL , LOCATION_UPAZILA_URL} from '../../../../utils/ServiceUrls';
+import {  LOCATION_DISTRICT_URL , LOCATION_UPAZILA_URL} from '../../../../utils/ServiceUrls';
 import { useNavigate } from 'react-router-dom';
+import { PSU_ADD_URL } from '../../../../utils/ServiceUrls';
 
 function PsuAdd() {
 
@@ -21,7 +22,7 @@ function PsuAdd() {
     const formData = new FormData(event.target);
     const payload = Object.fromEntries(formData);
     try {
-      let data = await PostRequest(payload, '/Psu/Add/');
+      let data = await PostRequest(payload, PSU_ADD_URL);
 
      if(data.status==='success' && data.responseCode==1000){
       navigate('/master-data/Psu/List/');
@@ -39,9 +40,9 @@ function PsuAdd() {
 
         <form onSubmit={handleSubmit}>
           <InputText label="PSU No" placeholder="" name="psuNo" required={true}/>
-          <InputSelect label='Zila' name="locLocationsDistrictId"  dataUrl={MASTER_DATA_BASE_URL+""+LOCATION_DISTRICT_URL} optionLabel='name' optionValue='id' searchParams={zillaSearchParams}/>
+          <InputSelect label='Zila' name="locLocationsDistrictId"  dataUrl={process.env.REACT_APP_MASTER_DATA_BASE_URL+""+LOCATION_DISTRICT_URL} optionLabel='name' optionValue='id' searchParams={zillaSearchParams}/>
           <InputText label="Zila Code" placeholder="" name="zilaCode" />
-          <InputSelect label='Upazila/Thana' placeholder="" name="locLocationsUpazilaId"  dataUrl={MASTER_DATA_BASE_URL+""+LOCATION_UPAZILA_URL} optionLabel='name' optionValue='id' searchParams={upazillaSearchParams}/>
+          <InputSelect label='Upazila/Thana' placeholder="" name="locLocationsUpazilaId"  dataUrl={process.env.REACT_APP_MASTER_DATA_BASE_URL+""+LOCATION_UPAZILA_URL} optionLabel='name' optionValue='id' searchParams={upazillaSearchParams}/>
           <InputText label="Upazila/Thana Code" placeholder="" name="upazilaThanaCode" />
           <InputText label="Union/Ward" placeholder="" name="unionWard" />
           <InputText label="Union/Ward Code" placeholder="" name="unionWardCode" />
