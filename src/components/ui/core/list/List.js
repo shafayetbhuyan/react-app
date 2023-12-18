@@ -7,20 +7,12 @@ import { fetchDataList } from '../../../../data/api/DataApi';
 
 
 export default function List(props) {
-    const { columns } = props.data;
+    const { dataUrl, columns, searchParams } = props;
     const [rows, setRows] = useState([]);
 
     useEffect(() => {
-        // const fetchData = async () => {
-        //   try {
-        //     const response = await axios.get('http://localhost:3001/api/data');
-        //     setData(response.data);
-        //   } catch (error) {
-        //     console.error('Error fetching data:', error);
-        //   }
-        // };
 
-        let response = fetchDataList("http://localhost:8960/api/masterData/Psu/List/", null, null, null);
+        let response = fetchDataList(dataUrl, searchParams, null, null);
         response.then(
             (resp) => {
                 console.log(resp); // "Success"
@@ -68,12 +60,12 @@ export default function List(props) {
                 initialState={{
                     pagination: {
                         paginationModel: {
-                            pageSize: 10,
+                            pageSize: 50,
                         },
                     },
                 }}
                 pageSizeOptions={[10]}
-                rowsPerPageOptions={[5, 10, 20]}
+                rowsPerPageOptions={[50, 500, 1000, 5000, 10000]}
                 // checkboxSelection
                 disableRowSelectionOnClick
                 getRowClassName={(params) =>
