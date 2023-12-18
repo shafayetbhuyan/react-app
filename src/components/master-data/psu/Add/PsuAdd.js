@@ -40,7 +40,7 @@ function PsuAdd() {
 
         <form onSubmit={handleSubmit}>
           <InputText label="PSU No" placeholder="" name="psuNo" required={true}/>
-          <InputSelect label='Zila' name="locLocationsDistrictId"  dataUrl={process.env.REACT_APP_MASTER_DATA_BASE_URL+""+LOCATION_DISTRICT_URL} optionLabel='name' optionValue='id' searchParams={zillaSearchParams}/>
+          <InputSelect label='Zila' name="locLocationsDistrict.id"  dataUrl={process.env.REACT_APP_MASTER_DATA_BASE_URL+""+LOCATION_DISTRICT_URL} optionLabel='name' optionValue='id' searchParams={zillaSearchParams}/>
           <InputText label="Zila Code" placeholder="" name="zilaCode" />
           <InputSelect label='Upazila/Thana' placeholder="" name="locLocationsUpazilaId"  dataUrl={process.env.REACT_APP_MASTER_DATA_BASE_URL+""+LOCATION_UPAZILA_URL} optionLabel='name' optionValue='id' searchParams={upazillaSearchParams}/>
           <InputText label="Upazila/Thana Code" placeholder="" name="upazilaThanaCode" />

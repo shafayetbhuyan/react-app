@@ -82,6 +82,9 @@ export function InputSelect(props) {
 
     const handleChange = (selectedOption) => {
         setSelectedOption(selectedOption);
+        // if(typeof props.onChange === 'function'){
+        //     props.onChange(selectedOption.id);
+        // }
     };
 
     const handleInputChange = (inputValue) => {
