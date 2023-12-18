@@ -14,7 +14,7 @@ function Menu() {
 
     const toggleSubMenu = (item, key) => {
         // const key = depth + '' + index;
-        console.log(key);
+        // console.log(key);
         if (item.menu) {
             setSubMenuVisible({
                 ...subMenuVisible,
@@ -29,7 +29,7 @@ function Menu() {
 
     const renderMenu = (items, parentPath, parentKey) => {
 
-        console.log(items, parentPath, parentKey);
+        // console.log(items, parentPath, parentKey);
 
         return (
             <ul>
