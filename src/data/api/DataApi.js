@@ -1,6 +1,4 @@
-import React, { useState } from 'react';
 import axios from 'axios';
-import { MASTER_DATA_BASE_URL } from '../../utils/ServiceUrls';
 
 const prepareSearchParams = (pageSize, pageNumber, data) => {
     let searchParams = '';
@@ -58,7 +56,7 @@ export const fetchDataList = async (url, data, pageSize, pageNumber) => {
 
 export const PostRequest = async (formData,url) => {
     try {
-      const response = await axios.post(MASTER_DATA_BASE_URL+url, formData);
+      const response = await axios.post(process.env.REACT_APP_MASTER_DATA_BASE_URL+url, formData);
       console.log('Form data successfully sent to the server:');
       return response.data;
     } catch (error) {
@@ -66,3 +64,14 @@ export const PostRequest = async (formData,url) => {
       throw error;
     }
   };
+
+  export const getData = async (url, data, pageSize, pageNumber) => {
+    url += prepareSearchParams(pageSize, pageNumber, data);
+    try {
+      const response = await axios.get(url);
+      return response.data;
+    } catch (error) {
+      console.error('Error fetching data:', error);
+      throw error;
+    }
+};
