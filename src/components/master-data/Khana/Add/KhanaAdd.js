@@ -7,12 +7,20 @@ import InputText from '../../../ui/core/input/InputText/InputText';
 import { InputSelect } from '../../../ui/core/input/InputSelect/InputSelect';
 import { SaveButton } from '../../../ui/core/button/Button';
 import axios from 'axios';
+import InputSelectStatic  from  '../../../ui/core/input/InputSelectStatic/InputSelectStatic';
+
+
 function KhanaAdd() {
   const [khanaData, setKhanaData] = useState({
     psuNo: ''
   });
   const [options, setOptions] = useState([]);
   const [selectedOption, setSelectedOption] = useState('');
+  const headMemberGenderOptions = [
+    { label: 'Male', value: 'M' },
+    { label: 'Female', value: 'F' },
+    { label: 'Other', value: 'O' },
+];
 
   const handleForm = (e) => {
     console.log(e.target.value)
@@ -79,6 +87,8 @@ function KhanaAdd() {
   const handleSelectChange = (e) => {
     setSelectedOption(e.target.value);
   };
+
+
   return (
     <div className={style.mainDiv}>
       <PageHeader value="Khana Add" />
@@ -107,7 +117,7 @@ function KhanaAdd() {
           <InputText label="Head Member Name" placeholder="" name="headMemberName" />
           <InputText label="Head Member Father" placeholder="" name="headMemberFather" />
           <InputText label="Head Member Birth Date" placeholder="" name="headMemberBirthDate" />
-          <InputText label="Head Member Gender" placeholder="" name="headMemberGender" />
+          <InputSelectStatic label="Head Member Gender" placeholder="" name="headMemberGender" options={headMemberGenderOptions} />
           <InputText label="Monthly Expense" placeholder="" name="monthlyExpense" />
           <InputText label="Monthly Income" placeholder="" name="monthlyIncome" />
 

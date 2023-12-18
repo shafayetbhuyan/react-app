@@ -14,7 +14,7 @@ const aquaticCreatures = [
 ];
 */
 
-export function SearchInputSelect(props) {
+export default function SearchInputSelect(props) {
     const { options, onChange } = props;
     const [selectedOption, setSelectedOption] = useState(null);
     // const [options, setOptions] = useState(aquaticCreatures);
@@ -23,12 +23,12 @@ export function SearchInputSelect(props) {
         control: (provided, state) => ({
             ...provided,
             background: '#fff',
-            borderColor: '#caced2',
-            minHeight: '26px',
-            height: '25px',
+            borderColor: '#828282',
+            minHeight: '29px',
+            height: '29px',
             fontSize: 13,
             boxSizing: 'border-box',
-            borderRadius: '2px',
+            borderRadius: '4px',
             boxShadow: state.isFocused ? null : null,
         }),
         option: (provided, { data, isDisabled, isFocused, isSelected }) => {
@@ -52,7 +52,7 @@ export function SearchInputSelect(props) {
         }),
         indicatorsContainer: (provided, state) => ({
             ...provided,
-            height: '21px',
+            height: '25px',
         }),
         menuList: (provided) => ({
             ...provided,
@@ -72,9 +72,12 @@ export function SearchInputSelect(props) {
         })
     };
 
+
     const handleChange = (selectedOption) => {
         setSelectedOption(selectedOption);
-        onChange();
+        if(onChange){
+            onChange();
+        }
     };
 
     return (
