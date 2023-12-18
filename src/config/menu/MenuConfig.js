@@ -39,7 +39,7 @@ export const sideMenu = [
     icon: faScroll,
     depth: 1,
     menu: [{
-      to: "/Psu",
+      to: "/psu",
       label: "PSU",
       icon: faDatabase,
       depth: 2,
@@ -75,7 +75,7 @@ export const sideMenu = [
       }]
     },
     {
-      to: "/Registerer",
+      to: "/registerer",
       label: "Registerer",
       icon: faArchive,
       depth: 2,
@@ -116,7 +116,7 @@ export const sideMenu = [
         }]
       },
       {
-        to: "/questionTopic",
+        to: "/question-topic",
         label: "Question Topic",
         icon: faDriversLicense,
         depth: 3,
@@ -169,7 +169,7 @@ export const sideMenu = [
     ]
   },
   {
-    to: "/userLocations",
+    to: "/user-locations",
     label: "User Locations",
     icon: faLocation,
     depth: 1,
@@ -199,7 +199,7 @@ export const sideMenu = [
     icon: faServer,
     depth: 1,
     menu: [{
-      to: "/auth/User",
+      to: "/auth/user",
       label: "Auth User",
       icon: faUser,
       depth: 2,
