@@ -3,27 +3,14 @@ import style from './InputSelect.module.css';
 import Select from 'react-select';
 import { fetchData } from '../../../../../data/api/DataApi';
 
-export function SearchInput(props) {
-    return (
-        <>
-            <div className={style.input} >
-                <label className={style.inputLabel}> {props.label} </label>
-                <input type="text" name={props.name} className={style.inputField} />
-            </div>
-        </>
-    );
-}
-
 const aquaticCreatures = [
     { psuNo: '', id: '' },
 ];
 
 export function InputSelect(props) {
-    
-    // const {label,name,} = props;
- 
+
     const [inputValue, setInputValue] = useState('');
-    const [selectedOption, setSelectedOption] = useState(null);
+    const [selectedOption, setSelectedOption] = useState('');
     const [pageNumber, setPageNumber] = useState(1);
     const [options, setOptions] = useState(aquaticCreatures);
     const [searchParams, setSearchParams] = useState(props.searchParams);
@@ -82,9 +69,6 @@ export function InputSelect(props) {
 
     const handleChange = (selectedOption) => {
         setSelectedOption(selectedOption);
-        // if(typeof props.onChange === 'function'){
-        //     props.onChange(selectedOption.id);
-        // }
     };
 
     const handleInputChange = (inputValue) => {
@@ -128,6 +112,11 @@ export function InputSelect(props) {
 
     useEffect(() => {
         fetchDataforDropDown("");
+
+        if(props.defaultValue){
+            setSelectedOption({...props.defaultValue})
+        }
+
     }, []);
 
     return (

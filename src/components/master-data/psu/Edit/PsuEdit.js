@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect , useLayoutEffect } from 'react';
 import PageHeader from "../../../layout/page-header/PageHeader";
 import style from './PsuEdit.module.css'
 import { PostRequest } from '../../../../data/api/DataApi';
@@ -16,23 +16,7 @@ function PsuEdit() {
     const navigate = useNavigate();
     const { id } = useParams();
 
-    const [dataset, setDataset] = useState({
-        id: '',
-        psuNo: '',
-        locLocationsDistrict: {
-            id: '',
-        },
-        zilaCode: '',
-        locLocationsUpazila: {
-            id: '',
-        },
-        upazilaThanaCode: '',
-        unionWard: '',
-        unionWardCode: '',
-        mouzaMoholla: '',
-        mouzaMohollaCode: '',
-        rmaCode: '',
-    });
+    const [dataset, setDataset] = useState(null);
 
     const zillaSearchParams = { "search.type.equal": "2", "pageNumber": 1, "pageSize": 500, };
     const upazillaSearchParams = { "search.type.equal": "4", "pageNumber": 1, "pageSize": 500, };
@@ -44,6 +28,9 @@ function PsuEdit() {
             (res) => {
                 if (res.status === 'success' && res.responseCode == 1000) {
                     setDataset(res.data);
+                    console.log("heeeeeeeeeeeeeeeelllllllllllllllllllllllll");
+                    // <InputSelect label='Zila' name="locLocationsDistrict.id" dataUrl={process.env.REACT_APP_MASTER_DATA_BASE_URL + "" + LOCATION_DISTRICT_URL} optionLabel='name' optionValue='id' searchParams={zillaSearchParams} defaultValue={dataset.locLocationsDistrict} />
+                    
                 }
             }
         );
@@ -73,15 +60,17 @@ function PsuEdit() {
 
     return (
         <div className={style.mainDiv}>
+            { dataset ?
+            <>
             <PageHeader value="PSU Edit" />
             <div className={style.pageContent}>
 
                 <form onSubmit={handleSubmit}>
                     <InputHidden label="Id" placeholder="" name="id" defaultValue={dataset.id} />
                     <InputText label="PSU No" placeholder="" name="psuNo" defaultValue={dataset.psuNo} required={true} />
-                    <InputSelect label='Zila' name="locLocationsDistrict.id" dataUrl={process.env.REACT_APP_MASTER_DATA_BASE_URL + "" + LOCATION_DISTRICT_URL} optionLabel='name' optionValue='id' searchParams={zillaSearchParams} />
+                    <InputSelect label='Zila' name="locLocationsDistrict.id" dataUrl={process.env.REACT_APP_MASTER_DATA_BASE_URL + "" + LOCATION_DISTRICT_URL} optionLabel='name' optionValue='id' searchParams={zillaSearchParams}  defaultValue={dataset.locLocationsDistrict}/>
                     <InputText label="Zila Code" placeholder="" name="zilaCode" defaultValue={dataset.zilaCode} />
-                    <InputSelect label='Upazila/Thana' placeholder="" name="locLocationsUpazila.id" dataUrl={process.env.REACT_APP_MASTER_DATA_BASE_URL + "" + LOCATION_UPAZILA_URL} optionLabel='name' optionValue='id' searchParams={upazillaSearchParams} />
+                    <InputSelect label='Upazila/Thana' placeholder="" name="locLocationsUpazila.id" dataUrl={process.env.REACT_APP_MASTER_DATA_BASE_URL + "" + LOCATION_UPAZILA_URL} optionLabel='name' optionValue='id' searchParams={upazillaSearchParams} defaultValue={dataset.locLocationsUpazila}/>
                     <InputText label="Upazila/Thana Code" placeholder="" name="upazilaThanaCode" defaultValue={dataset.upazilaThanaCode} />
                     <InputText label="Union/Ward" placeholder="" name="unionWard" defaultValue={dataset.unionWard} />
                     <InputText label="Union/Ward Code" placeholder="" name="unionWardCode" defaultValue={dataset.unionWardCode} />
@@ -92,8 +81,13 @@ function PsuEdit() {
                     <SaveButton />
 
                 </form>
-
             </div>
+            </> 
+            : 
+            <>
+            <h1>Loading...</h1>
+            </>
+            }
         </div>
 
     );
